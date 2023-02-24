@@ -1,1 +1,5 @@
+# Secret key file inside labtasks/labtasks/
 secretkey.py
+
+# cache
+__pycache__/
