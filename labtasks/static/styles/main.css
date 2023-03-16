@@ -304,6 +304,14 @@ nav {
     to {opacity: 1}
 }
 
+#hero-features-sep {
+    margin-top: 6em;
+    margin-bottom: 6em;
+    width: 75%;
+    border: 1px solid var(--primary-shadow);
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 5px rgba(0,0,0,0.3);
+}
 
 #features {
     width: 90%;
@@ -311,7 +319,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 5em;
+    /* margin-top: 6em; */
 }
 
 #features .feature {
@@ -325,7 +333,12 @@ nav {
     margin-bottom: 20px;
 }
 
-.about {
+#features h3 {
+    font-size: 1.5em;
+}
+
+#about, #contact {
+    scroll-margin-top: 2em;
     margin: auto;
     text-align: center;
     width: 75%;
