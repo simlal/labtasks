@@ -38,19 +38,22 @@
 <section>
 <div id="features">
     <div class="feature">
-      <img src="https://via.placeholder.com/100x100" alt="Users">
+        {% load static %}
+        <img src="{% static 'images/create-lab.png' %}" alt="create icon">
       <h3>Create your Lab</h3>
       <p>Add, remove, and update user information easily.</p>
     </div>
     <div class="feature">
-      <img src="https://via.placeholder.com/100x100" alt="Labs">
-      <h3>Organize spaces</h3>
+        {% load static %}
+        <img src="{% static 'images/manage-space.png' %}" alt="manage space icon">
+        <h3>Organize spaces</h3>
       <p>Create and manage private rooms for your team.</p>
     </div>
     <div class="feature">
-      <img src="https://via.placeholder.com/100x100" alt="Tasks">
-      <h3>Track progress</h3>
-      <p>Assign tasks to users and your lab's progress</p>
+        {% load static %}
+        <img src="{% static 'images/dashboard.png' %}" alt="track progress icon">
+        <h3>Track progress</h3>
+        <p>Assign tasks to users and your lab's progress</p>
     </div>
 </div>
 </section>

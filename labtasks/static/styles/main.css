@@ -200,12 +200,14 @@ nav {
     color:transparent;
     background-clip: text;
     border: 4px solid var(--primary-text-col);
+    transition: 0.5s;
 
 }
 .hero-header .register:hover, .hero-header .login:hover {
     color: var(--secondary-text-col);
     background: var(--primary-shadow);
     text-decoration: none;
+    border-radius: 40px 10px;
 }
 
 
@@ -254,7 +256,7 @@ nav {
 .slide-arrow {
     position: absolute;
     top: 0;
-    bottom: 85px;
+    bottom: 3.75em;
     margin: auto;
     height: 1rem;
     background-color: var(--primary-text-col);
@@ -324,12 +326,18 @@ nav {
 #features .feature img {
     height: 100px;
     width: 100px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 #features h3 {
-    font-size: 1.5em;
+    font-size: 2em;
+    color: var(--primary-text-col);
     
+}
+
+#features p {
+    color: var(--secondary-text-col);
+    font-size: 1.25em;
 }
 
 #about, #contact {
