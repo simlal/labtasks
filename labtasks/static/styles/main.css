@@ -33,8 +33,6 @@ a:hover {
 }
 
 body {
-    background: var(--accent-pink);  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, var(--accent-blue), var(--accent-pink));  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, var(--accent-blue), var(--accent-pink)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: var(--font-family);
     font-size: 16px;
@@ -79,11 +77,8 @@ nav {
 
 .header-logo .text{
     font-style: italic;
-    background: var(--accent-pink);  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, var(--accent-yellow), var(--accent-pink));  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, var(--accent-yellow), var(--accent-pink)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color:transparent;
-    -webkit-background-clip: text;
     background-clip: text;
 }
 /* #FFAD46 */
@@ -136,10 +131,8 @@ nav {
 
 .nav-options a {
     /* background: var(--accent-pink); */
-    background: -webkit-linear-gradient(to right, var(--accent-yellow), var(--accent-pink));
     background: linear-gradient(to right, var(--accent-yellow), var(--accent-pink)); 
     color:transparent;
-    -webkit-background-clip: text;
     background-clip: text;
 }
 
@@ -160,7 +153,7 @@ nav {
 
 /* HERO CONTENT */
 .hero {
-    margin-top: 2em;
+    margin-top: 3em;
     padding-left: 1em;
     padding-right: 1em;
     /* margin: auto; */
@@ -171,6 +164,8 @@ nav {
 }
 .hero-header {
     text-align: center;
+    width: 40%;
+    margin-left: 4em;
 }
 
 .hero-header h1 {
@@ -203,7 +198,6 @@ nav {
     padding: 0.75em;
     background: linear-gradient(to right, var(--accent-yellow), var(--accent-pink));
     color:transparent;
-    -webkit-background-clip: text;
     background-clip: text;
     border: 4px solid var(--primary-text-col);
 
@@ -226,7 +220,7 @@ nav {
 .hero-image-slideshow .slides-container {
     position: relative; 
     overflow: scroll;
-    max-width: 630px;
+    max-width: 610px;
     /* height: 100%; */
     display: flex;
     scroll-behavior: smooth;
@@ -235,7 +229,7 @@ nav {
 }
 
 .slides-container img {
-    min-width: 610px;
+    min-width: 590px;
     height: 400px;
     filter: blur(1px);
     border-radius: 50%;
@@ -335,6 +329,7 @@ nav {
 
 #features h3 {
     font-size: 1.5em;
+    
 }
 
 #about, #contact {
