@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
 <section class="hero">
     <div class="hero-header">
         <h1>LaboraTasks,<br>a laboratory tasks manager</h1>
@@ -72,17 +71,14 @@
         Nunc vel rutrum diam. Mauris eu maximus tortor, sit amet pulvinar neque. Integer nec egestas ipsum, luctus pellentesque est. Donec et aliquam lorem. Sed at placerat metus. Vestibulum pulvinar tempus dui in bibendum. Etiam fermentum purus orci, in cursus ex cursus et. Aenean feugiat risus eu tortor sodales, ac venenatis erat ornare. Aenean blandit urna ante, sed sollicitudin libero egestas quis. Cras mattis, lacus sed pulvinar fringilla, urna mauris porttitor lorem, sit amet placerat est tellus eget tortor. Proin mollis tortor tellus, et lacinia quam semper non. Vivamus suscipit orci lorem, ac dignissim libero elementum facilisis. Suspendisse suscipit enim sit amet dictum mollis. Maecenas non dignissim nisl. Suspendisse scelerisque vulputate fringilla. Pellentesque pellentesque, risus vel accumsan consequat, nisl leo vehicula ex, vel commodo nibh urna id orci. Vivamus cursus. 
     </p>
 </div>
-
+<section>
 <div id="contact">
-    <h2>CONTAC FORM</h2>
-    <a class="contact" href="{% url 'contact' %}">CLICK CONTACT TEST</a>
-    <p>
-        CREATE CONTACT FORM HERE<br><br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie laoreet metus, eu consequat turpis tincidunt sit amet. Pellentesque eget metus eu sapien consequat convallis sed eu dui. Fusce ut eleifend dolor. Suspendisse commodo, nunc non dignissim tempor, massa ligula posuere arcu, sed tincidunt nunc odio id dolor. Cras in sagittis libero. Ut vel ultricies felis. Nam venenatis nulla erat, ac tempus lorem malesuada in. Curabitur venenatis dolor lacus, vel aliquam tellus imperdiet mollis. Vestibulum non ipsum et purus eleifend consectetur vitae quis tortor. Etiam ullamcorper lobortis nulla sed dictum. Nunc convallis tellus nec arcu tempor egestas. Duis convallis at odio eget consequat. Cras non ipsum in leo venenatis ultricies non laoreet purus. Donec ultricies vitae tellus fermentum pulvinar.
+    <h2>CONTACT US</h2>
 
-    </p>
+    {% include "contact_email/contact.html" %}
+
 </div>
-
+</section>
 {% load static %}
 <script src="{% static 'index.js' %}"></script>
-{% endblock content %}
+{% endblock %}

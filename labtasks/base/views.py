@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from contact_email.models import Contact
+from contact_email.forms import ContactForm
 
 labs = [
     {"id":1, "name":"First Lab"},
@@ -7,7 +9,13 @@ labs = [
 ]
 
 def index(request):
-    context = {"labs" : labs}
+    # Contact form validation
+    form = ContactForm(request.POST)
+    context = {
+        "form" : form,
+        "submitted": False,
+    }
+    print(context)
     return render(request, "base/index.html", context)
 
 def spaces(request, pk):
