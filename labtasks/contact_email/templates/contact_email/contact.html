@@ -1,5 +1,18 @@
-{% extends 'main.html' %}
+{% if submitted %}
+    <h3 class="contact-success">Your message was submitted successfully!</h3>
+    <p class="contact-success">
+        You should receive a confirmation email soon and a response from us ASAP. Thanks :)
+    </p>
 
-{% block content %}
-<h1>CONTACT SUCCESS!</h1>
-{% endblock content %}
+
+{% else %}
+    <form method="post" action="">
+        {% csrf_token %}
+        <table class="form-table">
+            {{ form.as_table }}
+        </table>
+    <input id="contact-submit" type="submit" value="submit">
+    </form>
+
+
+{% endif %}
