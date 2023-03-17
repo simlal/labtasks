@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 labs = [
     {"id":1, "name":"First Lab"},

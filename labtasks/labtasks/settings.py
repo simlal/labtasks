@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "bootstrap5",
     
-    "base.apps.BaseConfig"
-    "contact_email.apps.BaseConfig"
+    "base.apps.BaseConfig",
+    "contact_email.apps.ContactEmailConfig"
 ]
 
 MIDDLEWARE = [
