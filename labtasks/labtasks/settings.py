@@ -11,17 +11,22 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-from .secretkey import dj_secret_key
+import yaml
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Retrieve secrets (key, dbname etc.)
+with open(BASE_DIR / "secrets.yaml", "r") as yf:
+    secrets = yaml.safe_load(yf)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = dj_secret_key
+SECRET_KEY = secrets["dj_secret_key"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -83,7 +88,7 @@ WSGI_APPLICATION = "labtasks.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": BASE_DIR / secrets["db_name"],
     }
 }
 
