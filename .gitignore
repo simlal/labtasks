@@ -1,5 +1,8 @@
-# Secret key file inside labtasks/labtasks/
-secretkey.py
+# Secrets containing file
+secrets.yaml
 
 # cache
 __pycache__/
+
+#db
+db.sqlite3
