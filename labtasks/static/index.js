@@ -85,4 +85,14 @@ prevButton.addEventListener("click", () => {
 
   });
 
- 
+
+// Center Send message button relative to form text area
+const referenceDiv = document.querySelector(".form-table textarea");
+const centeredElement = document.getElementById("contact-submit");
+
+const referenceDivRect = referenceDiv.getBoundingClientRect();
+const centeredElementRect = centeredElement.getBoundingClientRect();
+
+centeredElement.style.left = (referenceDivRect.left + referenceDivRect.width / 2 - centeredElementRect.width / 2) + 'px';
+
+let left = referenceDivRect.left + referenceDivRect.width / 2 - centeredElementRect.width / 2;
