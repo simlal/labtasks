@@ -1,4 +1,5 @@
 {% if submitted %}
+    <div class="contact-success-container">
     <h3 class="contact-success">Your message was submitted successfully!</h3>
     <p class="contact-success">
         You should receive a confirmation email soon and a response from us ASAP. Thanks :)
@@ -11,8 +12,8 @@
         <table class="form-table">
             {{ form.as_table }}
         </table>
-    <input id="contact-submit" type="submit" value="submit">
+    <button id="contact-submit" type="submit">Send message</button>
     </form>
-
+    <div id="spacing-bottom-submit"></div>
 
 {% endif %}
