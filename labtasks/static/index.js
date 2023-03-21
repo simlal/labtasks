@@ -37,6 +37,25 @@ function textHighlightCarousel(slideIndex, slidesText) {
     }
 }
 
+// Autoswipe carousel
+let automaticCarouselInterval;
+
+function automaticCarousel(slidesContainer, slides, slideIndex, slidesText) {
+    clearInterval(automaticCarouselInterval);
+
+    automaticCarouselInterval = setInterval(() => {
+        const slideContainerWidth = slidesContainer.clientWidth;
+        slidesContainer.scrollLeft += slideContainerWidth;
+        if (slideIndex == slides.length) {
+            slidesContainer.scrollLeft -= slideContainerWidth * slides.length;
+            slideIndex = 1;
+        }
+        else {
+            slideIndex += 1;
+        }
+        textHighlightCarousel(slideIndex, slidesText);
+    }, 2500);
+}
 
 // get slideshow images and buttons
 const slidesContainer = document.getElementById("slides-container");
@@ -49,15 +68,18 @@ const slidesText = document.querySelectorAll("#slides-text p")
 
 // Carousel buttons and text highlight
 
-// Initialize carousel
+// Initialize carousel and highlight text on slide change
 let slideIndex = 1;
 slidesText[slideIndex - 1].style.fontWeight = "bold";
 slidesText[slideIndex - 1].style.color = "var(--secondary-text-col)";
 textHighlightCarousel(slideIndex, slidesText);
 
+// Start automatic carousel
+automaticCarousel(slidesContainer, slides, slideIndex, slidesText);
 
 // change slide and highlight text on left/right click
 nextButton.addEventListener("click", () => {
+    clearInterval(automaticCarouselInterval);
     const slideContainerWidth = slidesContainer.clientWidth;
     slidesContainer.scrollLeft += slideContainerWidth;
     if (slideIndex == slides.length) {
@@ -69,9 +91,15 @@ nextButton.addEventListener("click", () => {
     }
     textHighlightCarousel(slideIndex, slidesText);
 
-  });
+    // Restart automatic carousel after 5 seconds
+    setTimeout(() => {
+        automaticCarousel(slidesContainer, slides, slideIndex, slidesText);
+    }, 4000);
+
+});
   
 prevButton.addEventListener("click", () => {
+    clearInterval(automaticCarouselInterval);
     const slideContainerWidth = slidesContainer.clientWidth;
     slidesContainer.scrollLeft -= slideContainerWidth;
     if (slideIndex == 1) {
@@ -83,7 +111,13 @@ prevButton.addEventListener("click", () => {
     }
     textHighlightCarousel(slideIndex, slidesText);
 
-  });
+    // Restart automatic carousel after 5 seconds
+    setTimeout(() => {
+        automaticCarousel(slidesContainer, slides, slideIndex, slidesText);
+    }, 4000);
+});
+
+
 
 
 // Center Send message button relative to form text area
