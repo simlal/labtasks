@@ -1,20 +1,20 @@
 {% load static %}
 <nav>
     <div class="header-logo">
-    <h1><a class="text" href="{% url 'index' %}">LaboraTasks</a></h1>
-    <a class="logo1" href="{% url 'index' %}"><img src={% static "images/logo_pink.png" %} alt="LaboraTasks Logo"></a>
-    <a class="logo2" href="{% url 'index' %}"><img src={% static "images/logo_inverted.png" %} alt="LaboraTasks Logo"></a>
+    <h1><a class="text" href="{% url 'base:index' %}">LaboraTasks</a></h1>
+    <a class="logo1" href="{% url 'base:index' %}"><img src={% static "images/logo_pink.png" %} alt="LaboraTasks Logo"></a>
+    <a class="logo2" href="{% url 'base:index' %}"><img src={% static "images/logo_inverted.png" %} alt="LaboraTasks Logo"></a>
     </div>
     <ul class="nav-options">
         <div class="item-gr1">
-            <li><a class="item1" href="{% url 'register' %}">Register</a></li>
+            <li><a class="item1" href="{% url 'base:register' %}">Register</a></li>
             <li>/</li>
-            <li><a class="item2" href="{% url 'login' %}">Log in</a></li>
+            <li><a class="item2" href="{% url 'base:login' %}">Log in</a></li>
         </div>
         <div class="item-gr2">
-            <li><a class="item3" href="{% url 'index' %}#about">About</a></li>
+            <li><a class="item3" href="{% url 'base:index' %}#about">About</a></li>
             <li>-</li>
-            <li><a class="item4" href="{% url 'index' %}#contact">Contact</a></li>
+            <li><a class="item4" href="{% url 'base:index' %}#contact">Contact</a></li>
         </div>
     </ul>
 </nav>
