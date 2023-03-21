@@ -28,8 +28,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# ADMINS name + emails
+# Registered admins
 ADMINS = [tuple(admin) for admin in secrets['admins']]
+
+# Email backend for contact
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = secrets["email"]["default_from"]
+EMAIL_HOST = secrets["email"]["host"]
+EMAIL_HOST_USER = secrets["email"]["user"]
+EMAIL_HOST_PASSWORD = secrets["email"]["password"]
+EMAIL_PORT = secrets["email"]["port"]
+EMAIL_USE_TLS = secrets["email"]["tls"]
 
 
 # Application definition
