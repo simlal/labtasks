@@ -64,12 +64,3 @@ def index(request):
     }
     # print(context)
     return render(request, "base/index.html", context=context)
-
-def spaces(request, pk):
-    return render(request, "base/spaces.html")
-
-def register(request):
-    return render(request, "base/register.html")
-
-def login(request):
-    return render(request, "base/login.html")
