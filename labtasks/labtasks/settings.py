@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     "bootstrap5",
     
     "base.apps.BaseConfig",
-    "contact_email.apps.ContactEmailConfig"
+    "contact_email.apps.ContactEmailConfig",
+    "user_authentication.apps.UserAuthenticationConfig"
 ]
 
 MIDDLEWARE = [
