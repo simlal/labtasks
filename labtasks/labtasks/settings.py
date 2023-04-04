@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     
     "base.apps.BaseConfig",
     "contact_email.apps.ContactEmailConfig",
-    "user_authentication.apps.UserAuthenticationConfig"
+    "user_authentication.apps.UserAuthenticationConfig",
+    "labspaces.apps.LabspacesConfig"
 ]
 
 MIDDLEWARE = [
