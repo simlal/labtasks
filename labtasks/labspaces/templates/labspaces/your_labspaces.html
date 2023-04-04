@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+{% block other_stylesheet %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'styles/labspaces.css' %}">
+{% endblock other_stylesheet %}
+
+{% block content %}
+
+<div id="your-labspaces">
+    <h2>YOUR LABSPACES</h2>
+
+    {% for labspace in labspaces %}
+    <div class="labspace-check">
+        <div class="labspace-checkbox">
+          <input type="checkbox" id="labspace-checkbox{{ labspace.id }}" name="check" data-url="{% url 'labspaces:labspace' labspace.id %}">
+          <label for="labspace-checkbox{{ labspace.id }}">{{ labspace.name }}</label>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="buttons">
+        <button id="selected-labspace" type="submit">Go to labspace!</button>
+    </div>
+    
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% load static %}
+<script src="{% static 'labspaces.js' %}"></script>
+{% endblock content %}

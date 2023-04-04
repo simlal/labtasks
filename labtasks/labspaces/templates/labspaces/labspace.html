@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block other_stylesheet %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'styles/labspaces.css' %}">
+{% endblock other_stylesheet %}
+
+{% block content %}
+
+<h1>NAME = {{labspace.name}}</h1>
+<p>ID = {{labspace.pk}}</p>
+<p>DESCR = {{labspace.description}}</p>
+
+{% endblock %}
