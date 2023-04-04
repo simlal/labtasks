@@ -1,0 +1,93 @@
+#your-labspaces {
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    width: 75%;
+    font-size: 2em;
+    margin-top: 2em;
+}
+
+/* LABSPACE CHECKBOX SELECT */
+
+.labspace-check {
+    margin: auto;
+    width: 90%;
+}
+.labspace-checkbox input[type="checkbox"] {
+    display: none;
+  }
+
+  .labspace-checkbox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 25px;
+    
+}
+
+.labspace-checkbox input[type="checkbox"] + label {
+    display: block;
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    color:white;
+}
+
+.labspace-checkbox input[type="checkbox"]:hover + label:hover {
+    color: var(--primary-shadow);
+}
+.labspace-checkbox input[type="checkbox"]:hover + label:before {
+    background: var(--primary-text-col);
+    box-shadow: inset 0px 0px 0px 2px #f7f2f2;
+}
+.labspace-checkbox input[type="checkbox"] + label:last-child {
+    margin-bottom: 0;
+}
+.labspace-checkbox input[type="checkbox"] + label:before {
+    content: "";
+    display: block;
+    width: 1em;
+    height: 1em;
+    border: 1px solid #343a3f;
+    border-radius: 0.2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transition: all 0.2s, background 0.2s ease-in-out;
+    transition: all 0.2s, background 0.2s ease-in-out;
+    background: #f3f3f3;
+}
+.labspace-checkbox input[type="checkbox"]:checked + label:before {
+    width: 1.3em;
+    height: 1.3em;
+    border-radius: 0.2em;
+    border: 2px solid #fff;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    background: var(--primary-text-col);
+    box-shadow: 0 0 0 1px #000;
+}
+
+#selected-labspace {
+    width: 225px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-size: 1em;
+    padding: 0.5em;
+    color: var(--primary-text-col);
+    border: 4px solid var(--primary-text-col);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#selected-labspace:hover {
+    color: var(--secondary-text-col);
+    background: var(--primary-shadow);
+    text-decoration: none;
+    border-radius: 40px 10px;
+}
