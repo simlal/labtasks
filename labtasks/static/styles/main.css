@@ -117,7 +117,7 @@ nav {
     justify-content: space-between;
     text-align: center;
     width: 25%;
-    flex-basis: 8em;
+    flex-basis: 9em;
 }
 .nav-options .item-gr2 {
     display: flex;
@@ -126,6 +126,14 @@ nav {
     text-align: center;
     width: 30%;
     flex-basis: 9em;
+}
+.nav-options .item-gr5 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    width: 25%;
+    flex-basis: 16em;
 }
 
 
@@ -149,7 +157,9 @@ nav {
 .nav-options .item4:hover {
     color: var(--secondary-text-col);
 }
-
+.nav-options .item5:hover {
+    color: var(--secondary-text-col);
+}
 
 /* HERO CONTENT */
 .hero {
