@@ -1,4 +1,8 @@
 {% extends 'main.html' %}
+{% load static %}
+{% block user_auth_styles %}
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/user_auth.css' %}">
+{% endblock user_auth_styles %}
 
 {% block content %}
 <h1>REGISTER PAGE</h1>
