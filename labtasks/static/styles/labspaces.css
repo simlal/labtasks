@@ -8,7 +8,6 @@
 }
 
 /* LABSPACE CHECKBOX SELECT */
-
 .labspace-check {
     margin: auto;
     width: 90%;
@@ -90,4 +89,91 @@
     background: var(--primary-shadow);
     text-decoration: none;
     border-radius: 40px 10px;
+}
+
+
+#labspace-header {
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    width: 75%;
+    margin-top: 1em;
+}
+
+#labspace-header .labspace-title {
+    font-size: 2em;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 1.5em;
+    background: linear-gradient(to right, var(--accent-pink), var(--accent-yellow));
+    color: var(--primary-text-col);
+    border: 4px solid var(--primary-text-col);
+    transition: 0.5s;
+    padding: 0.5em 1em;
+
+}
+#labspace-header .labspace-title:hover {
+    color: var(--secondary-text-col);
+    background: var(--primary-shadow);
+    text-decoration: none;
+    border-radius: 40px 10px;
+}
+
+#labspace-header .description {
+    font-size: 1.25em;
+    color: var(--secondary-text-col);
+    width: 75%;
+    margin: auto;
+
+}
+
+#labspace-messages {
+    margin: auto;
+    text-align: left;
+    align-items: center;
+    width: 90%;
+    margin-top: 2em;
+    
+}
+
+#labspace-messages .user-post {
+    border: 4px solid var(--primary-text-col);
+    border-radius: 40px 10px;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
+}
+
+#labspace-messages h3 {
+    font-size: 1.5em;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    background: linear-gradient(to right, var(--accent-yellow), var(--accent-pink));
+    color:transparent;
+    background-clip: text;
+    
+}
+
+#labspace-messages .body {
+    color: var(--secondary-text-col);
+    font-size: 0.8em;
+}
+
+#labspace-messages .timestamp {
+    color: var(--secondary-text-col);
+    font-size: 0.4em;
+    font-style: italic;
 }
