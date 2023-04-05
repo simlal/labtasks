@@ -8,6 +8,10 @@
     margin-top: 2em;
 }
 
+#your-labspaces p {
+    color: var(--secondary-text-col);
+}
+
 /* LABSPACE CHECKBOX SELECT */
 .labspace-check {
     margin: auto;
@@ -73,6 +77,14 @@
     box-shadow: 0 0 0 1px #000;
 }
 
+.labspace-buttons {
+    padding-top: 0.5em;
+    width: 75%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
 #selected-labspace-btn, #labspace-create-btn {
     width: 225px;
@@ -91,6 +103,45 @@
     background: var(--primary-shadow);
     text-decoration: none;
     border-radius: 40px 10px;
+}
+
+#selected-labspace-btn {
+    background: linear-gradient(to right, var(--accent-yellow), var(--accent-pink));
+    color:transparent;
+    background-clip: text;
+}
+
+#edit-labspace-btn, #delete-labspace-btn {
+    width: 225px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-size: 1em;
+    padding: 0.5em;
+    color: var(--primary-text-col);
+    border: 4px solid var(--primary-text-col);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#edit-labspace-btn:hover, #delete-labspace-btn:hover {
+    color: var(--secondary-text-col);
+    background: var(--primary-shadow);
+    text-decoration: none;
+    border-radius: 40px 10px;
+}
+
+
+.hero-header .register, .hero-header .login {
+    background-color: var(--primary-shadow);
+    border-radius: 10px;
+    font-size: 1.5em;
+    padding: 0.75em;
+    background: linear-gradient(to right, var(--accent-yellow), var(--accent-pink));
+    color:transparent;
+    background-clip: text;
+    border: 4px solid var(--primary-text-col);
+    transition: 0.5s;
+
 }
 
 /* Create header spacing*/

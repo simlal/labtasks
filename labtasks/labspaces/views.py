@@ -50,17 +50,27 @@ def your_labspaces(request):
 
         return render(request, "labspaces/your_labspaces.html", context)
 
+def edit_labspace(request, pk):
+    labspace = Labspace.objects.get(id=pk)
+    context = {"labspace": labspace}
+    return render(request, "labspaces/edit_labspace.html", context)
+
+def delete_labspace(request, pk):
+    labspace = Labspace.objects.get(id=pk)
+    context = {"labspace": labspace}
+    return render(request, "labspaces/delete_labspace.html")
+
 # @login_required
 def labspace(request, pk):
     # Get labspace and all related messages
     labspace = Labspace.objects.get(id=pk)
     messages = Message.objects.filter(labspace=labspace)
-    
+
     context = {
         "labspace": labspace,
         "messages": messages,
+
         "current_user": request.user
     }
-    print(context)
 
     return render(request, "labspaces/labspace.html", context)
