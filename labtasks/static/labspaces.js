@@ -1,6 +1,6 @@
 // Go to selected labspace based on checkbox selection
 
-var button = document.querySelector('#selected-labspace');
+var button = document.querySelector('#selected-labspace-btn');
 
 button.addEventListener('click', function() {
     // Select all checked checkboxes

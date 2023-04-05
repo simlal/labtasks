@@ -1,4 +1,5 @@
-#your-labspaces {
+/* YOUR LABSPACES SELECTION/CREATE */
+#your-labspaces, #create-labspace-container {
     margin: auto;
     text-align: center;
     align-items: center;
@@ -72,11 +73,8 @@
     box-shadow: 0 0 0 1px #000;
 }
 
-/* .activity {
-    display: inline-block
-} */
 
-#selected-labspace {
+#selected-labspace-btn, #labspace-create-btn {
     width: 225px;
     background-color: rgba(0,0,0,0.1);
     border-radius: 10px;
@@ -88,12 +86,64 @@
     cursor: pointer;
 }
 
-#selected-labspace:hover {
+#selected-labspace-btn:hover, #labspace-create-btn:hover {
     color: var(--secondary-text-col);
     background: var(--primary-shadow);
     text-decoration: none;
     border-radius: 40px 10px;
 }
+
+/* Create header spacing*/
+
+#create-labspace-container h2 {
+    margin-top: 2em;
+}
+
+/* labspace form */
+
+.create-labspace-form {
+    width: 90%;
+    margin-top: -0.5em;
+    padding-right: 3em;
+    margin-left: -2em;
+
+}
+
+.create-labspace-form th {
+    text-align: right;
+    padding-right: 1em;
+}
+
+.create-labspace-form input[type="text"],
+.create-labspace-form textarea {
+    width: 100%;
+    padding: 0.75em;
+    margin-top: 0.5em;
+    box-sizing: border-box;
+    border: 2px solid var(--primary-text-col);
+    border-radius: 10px;
+    font-size: 0.5em;
+}
+
+.create-labspace-form .errorlist {
+    width: 75%;
+    margin: auto;
+    /* padding: 0.75em; */
+    /* margin-top: 0.5em; */
+    box-sizing: border-box;
+    border: 2px solid var(--primary-text-col);
+    border-radius: 10px;
+    font-size: 0.75em;
+    font-weight: bold;
+    color: var(--accent-pink);
+    background-color: var(--primary-shadow);
+}
+
+#labspace-create-btn {
+    margin-top: 1em;
+}
+
+/* INDIVIDUAL LABSPACE PAGE */
 
 #labspace-header {
     margin: auto;

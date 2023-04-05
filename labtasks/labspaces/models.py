@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 
 class Labspace(models.Model):
     host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    name = models.CharField(max_length=200)
-    description = models.TextField(null=True, blank=True)
+    name = models.CharField(max_length=50)
+    description = models.TextField(null=True, blank=True, max_length=200)
     # participants =
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

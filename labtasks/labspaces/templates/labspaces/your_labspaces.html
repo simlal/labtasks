@@ -1,11 +1,15 @@
 {% extends 'main.html' %}
 
 {% block other_stylesheet %}
+
 {% load static %}
     <link rel="stylesheet" href="{% static 'styles/labspaces.css' %}">
+
 {% endblock other_stylesheet %}
 
+
 {% block content %}
+
 {% load my_filters %}
 
 <div id="your-labspaces">
@@ -14,25 +18,38 @@
     {% for labspace in labspaces %}
     <div class="labspace-check">
         <div class="labspace-checkbox">
-          <input type="checkbox" id="labspace-checkbox{{ labspace.id }}" name="check" data-url="{% url 'labspaces:labspace' labspace.id %}">
-          <label for="labspace-checkbox{{ labspace.id }}">{{ labspace.name }} 
+            <input type="checkbox" id="labspace-checkbox{{ labspace.id }}" name="check" data-url="{% url 'labspaces:labspace' labspace.id %}">
+            <label for="labspace-checkbox{{ labspace.id }}">{{ labspace.name }} 
             <span style="color: var(--primary-shadow); font-size: 0.75em;">
-            {% if timesince_last_message|get_timesince:labspace.id == "No messages yet" %} 
-            &#8594; {{ timesince_last_message|get_timesince:labspace.id }}
-            {% else %}
-            &#8594; last activity: {{ timesince_last_message|get_timesince:labspace.id }}
-            {% endif %}
+                {% if timesince_last_message|get_timesince:labspace.id == "No messages yet" %} 
+                &#8594; {{ timesince_last_message|get_timesince:labspace.id }}
+                {% else %}
+                &#8594; last activity: {{ timesince_last_message|get_timesince:labspace.id }}
+                {% endif %}
             </span></label>
         </div>
     </div>
     {% endfor %}
 
     <div class="buttons">
-        <button id="selected-labspace" type="submit">Go to labspace!</button>
+        <button id="selected-labspace-btn" type="submit">Go to labspace!</button>
     </div>
-    
 </div>
+<div id="create-labspace-container">
+    <h2>CREATE NEW LABSPACE</h2>
+            <form method="post" action="">
+                {% csrf_token %}
+                <table class="create-labspace-form">
+                {{ form.as_table }}
+                </table>
+                <button id="labspace-create-btn" type="submit">Create new labspace</button>
+            </form>
+</div>
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 {% load static %}
 <script src="{% static 'labspaces.js' %}"></script>
+
+
 {% endblock content %}

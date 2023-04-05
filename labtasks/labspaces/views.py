@@ -1,39 +1,54 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 from .models import Labspace, Message
+from .forms import LabspaceForm
+
 from django.utils import timezone
 from django.utils.timesince import timesince
 # from django.contrib.auth.decorators import login_required
 
 # @login_required
 def your_labspaces(request):
-    # Display your available labspaces
-    labspaces = Labspace.objects.all()
     
-    # Get timesince last message for each labspace
-    timesince_last_message = {}
+    # Create a new labspace based on form
+    if request.method == "POST":
+        form = LabspaceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            context = {"form": form}
+            return redirect("labspaces:your_labspaces")
 
-    # Handle the empty queryset
-    for labspace in labspaces:
-        try : 
-            last_message = Message.objects.filter(labspace=labspace.id).latest("created")
-        except Exception as e:
-            print(e)
-            last_message = False
+    # Display  available labspaces and create labspace form
+    else: 
+        form = LabspaceForm()    # To render the form on request.get
         
-        # Save latest message based on space id
-        if last_message:
-            timesince_last_message[labspace.id] = timesince(last_message.created, timezone.now())
-        else:
-            timesince_last_message[labspace.id] = 'No messages yet'
+        labspaces = Labspace.objects.all()    # Get all available labspaces
+        
+        timesince_last_message = {}    # Initialize timesince dict
 
-    print(timesince_last_message)        
-    
-    context = {
-        "labspaces": labspaces,
-        "timesince_last_message": timesince_last_message
-    }
+        # Handle the empty queryset
+        for labspace in labspaces:
+            try : 
+                last_message = Message.objects.filter(labspace=labspace.id).latest("created")
+            except Exception as e:
+                print(e)
+                last_message = False
+            
+            # Save latest message based on space id
+            if last_message:
+                timesince_last_message[labspace.id] = timesince(last_message.created, timezone.now())
+            else:
+                timesince_last_message[labspace.id] = 'No messages yet'
 
-    return render(request, "labspaces/your_labspaces.html", context)
+        print(timesince_last_message)        
+        
+        context = {
+            "labspaces": labspaces,
+            "timesince_last_message": timesince_last_message,
+            "form": form
+        }
+
+        return render(request, "labspaces/your_labspaces.html", context)
 
 # @login_required
 def labspace(request, pk):
