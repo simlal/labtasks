@@ -1,5 +1,5 @@
 /* YOUR LABSPACES SELECTION/CREATE */
-#your-labspaces, #create-labspace-container {
+#your-labspaces, #create-labspace-container, .no-messages {
     margin: auto;
     text-align: center;
     align-items: center;
@@ -229,4 +229,8 @@
     color: var(--secondary-text-col);
     font-size: 0.4em;
     font-style: italic;
+}
+
+.no-messages h2 {
+    font-size: 1em;
 }

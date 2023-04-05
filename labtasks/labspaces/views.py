@@ -61,5 +61,6 @@ def labspace(request, pk):
         "messages": messages,
         "current_user": request.user
     }
+    print(context)
 
     return render(request, "labspaces/labspace.html", context)
