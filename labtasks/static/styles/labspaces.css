@@ -72,6 +72,10 @@
     box-shadow: 0 0 0 1px #000;
 }
 
+/* .activity {
+    display: inline-block
+} */
+
 #selected-labspace {
     width: 225px;
     background-color: rgba(0,0,0,0.1);
@@ -90,7 +94,6 @@
     text-decoration: none;
     border-radius: 40px 10px;
 }
-
 
 #labspace-header {
     margin: auto;

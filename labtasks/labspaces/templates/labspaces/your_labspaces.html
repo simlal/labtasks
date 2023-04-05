@@ -6,6 +6,7 @@
 {% endblock other_stylesheet %}
 
 {% block content %}
+{% load my_filters %}
 
 <div id="your-labspaces">
     <h2>YOUR LABSPACES</h2>
@@ -14,7 +15,14 @@
     <div class="labspace-check">
         <div class="labspace-checkbox">
           <input type="checkbox" id="labspace-checkbox{{ labspace.id }}" name="check" data-url="{% url 'labspaces:labspace' labspace.id %}">
-          <label for="labspace-checkbox{{ labspace.id }}">{{ labspace.name }}</label>
+          <label for="labspace-checkbox{{ labspace.id }}">{{ labspace.name }} 
+            <span style="color: var(--primary-shadow); font-size: 0.75em;">
+            {% if timesince_last_message|get_timesince:labspace.id == "No messages yet" %} 
+            &#8594; {{ timesince_last_message|get_timesince:labspace.id }}
+            {% else %}
+            &#8594; last activity: {{ timesince_last_message|get_timesince:labspace.id }}
+            {% endif %}
+            </span></label>
         </div>
     </div>
     {% endfor %}
