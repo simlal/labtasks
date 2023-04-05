@@ -1,11 +1,14 @@
 {% extends 'main.html' %}
 
 {% block other_stylesheet %}
+
 {% load static %}
     <link rel="stylesheet" href="{% static 'styles/labspaces.css' %}">
-{% endblock other_stylesheet %}
+
+    {% endblock other_stylesheet %}
 
 {% block content %}
+
 <div id="labspace-header"> 
     <h2 class="labspace-title">{{ labspace.host }}'s <em color="white">{{ labspace.name }}</em> labspace</h2>
     <p class="description">{{ labspace.description }}</p>
@@ -14,11 +17,13 @@
 <div id="labspace-messages">
 
     {% for message in messages %}
+    
     <div class="user-post" {% if message.user == current_user %}left-align{% else %}right-align{% endif %}>
         <h3>@{{ message.user }}<h3>
         <p class="body"> {{ message.body }}</p>
         <p class="timestamp">posted {{ message.created|timesince }} ago</p>
     </div>
+
     {% endfor %}
 </div>
 
