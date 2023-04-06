@@ -7,6 +7,9 @@ This is the main project of a university class which act as an intro to web deve
 
 
 ## Live demo
+Incoming...(see below)
+
+## Steps TODO for live demo
 Host the app (for free) with the following steps:
 1. Host the github repo on a web hosting service ([PythonAnywhere](www.PythonAnywhere.com) or [Vercel](www.vercel.com))
 
