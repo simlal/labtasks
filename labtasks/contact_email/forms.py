@@ -20,6 +20,8 @@ class ContactForm(ModelForm):
     )
     subject = forms.CharField(
         required=True,
+        max_length=255,
+        widget=forms.TextInput(attrs={"placeholder": "Subject of the message"})
         
     )
     message = forms.CharField(
