@@ -9,6 +9,32 @@
 
 {% block content %}
 
-DELETE!
+<div id="delete-labspace-cont">
+    <h2>ABOUT TO DELETE...</h2>
+    <p class="labspace-to-delete">Your labspace named <span style="color: var(--accent-yellow); font-style: italic;">{{labspace.name}}</span> ?</p>
+    <ul class="labspace-stats">
+        <li><span style="color: var(--secondary-text-col)">Host &#8594; </span>{{ labspace.host }}</li>
+        <li><span style="color: var(--secondary-text-col)">Created &#8594; </span>{{ labspace.created|date:"F Y" }}</li>
+        {% if last_message %}
+            <li><span style="color: var(--secondary-text-col)">Last message &#8594; </span> by @{{ last_message.user}} ({{ timesince_last }} ago)</li>
+        {% else %}
+        <li><span style="color: var(--secondary-text-col)">Last message &#8594; </span> {{ timesince_last }} </li>
+        {% endif %}
+        
+    </ul>
+    <div class="labspace-del-buttons">
+        <form action="{% url 'labspaces:delete_labspace' labspace.id %}" method="post">
+            {% csrf_token %}
+            <button id="delete-yes-btn" type="submit">YES</button>
+        </form>
+        <form action="{% url 'labspaces:cancel_delete_labspace' %}" method="get">
+            <button id="delete-no-btn" type="submit">NO</button>
+        </form>
+    </div>
+
+</div>
+
+{% load static %}
+<script src="{% static 'labspaces.js' %}"></script>
 
 {% endblock %}

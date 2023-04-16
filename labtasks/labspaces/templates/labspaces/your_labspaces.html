@@ -14,23 +14,28 @@
 
 <div id="your-labspaces">
     <h2>YOUR LABSPACES</h2>
-    <p class="select-advice">Select a labspace!</p>
-    {% for labspace in labspaces %}
-    <div class="labspace-check">
-        <div class="labspace-checkbox">
-            <input type="checkbox" id="labspace-checkbox{{ labspace.id }}" name="check" labspace-url="{% url 'labspaces:labspace' labspace.id %}" edit-url="{% url 'labspaces:edit_labspace' labspace.id %}" delete-url="{% url 'labspaces:delete_labspace' labspace.id %}">
-            <label for="labspace-checkbox{{ labspace.id }}">{{ labspace.name }} 
-            <span style="color: var(--accent-yellow); font-size: 0.75em;">
-                {% if timesince_last_message|get_timesince:labspace.id == "No messages yet" %} 
-                &nbsp;&nbsp;&nbsp;&#8594;&nbsp;&nbsp;&nbsp; {{ timesince_last_message|get_timesince:labspace.id }}
-                {% else %}
-                &nbsp;&nbsp;&nbsp;&#8594;&nbsp;&nbsp;&nbsp; last activity: {{ timesince_last_message|get_timesince:labspace.id }}
-                {% endif %}
-            </span>
-            </label>
+    {% if not labspaces %}
+        <p class="select-advice">No labspaces yet, create one now!</p>
+    {% else %}
+        <p class="select-advice">Select a labspace!</p>
+        {% for labspace in labspaces %}
+        <div class="labspace-check">
+            <div class="labspace-checkbox">
+                <input type="checkbox" id="labspace-checkbox{{ labspace.id }}" name="check" labspace-url="{% url 'labspaces:labspace' labspace.id %}" edit-url="{% url 'labspaces:edit_labspace' labspace.id %}" delete-url="{% url 'labspaces:delete_labspace' labspace.id %}">
+                <label for="labspace-checkbox{{ labspace.id }}">{{ labspace.name }} 
+                <span style="color: var(--accent-yellow); font-size: 0.75em;">
+                    {% if timesince_last_message|get_timesince:labspace.id == "No messages yet" %} 
+                    &nbsp;&nbsp;&nbsp;&#8594;&nbsp;&nbsp;&nbsp; {{ timesince_last_message|get_timesince:labspace.id }}
+                    {% else %}
+                    &nbsp;&nbsp;&nbsp;&#8594;&nbsp;&nbsp;&nbsp; last activity: {{ timesince_last_message|get_timesince:labspace.id }}
+                    {% endif %}
+                </span>
+                </label>
+            </div>
         </div>
-    </div>
-    {% endfor %}
+        {% endfor %}
+    {% endif %}
+
 
     <div class="labspace-buttons">
         <button id="selected-labspace-btn" type="submit">Go to labspace!</button>

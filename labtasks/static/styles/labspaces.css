@@ -1,5 +1,5 @@
 /* YOUR LABSPACES SELECTION/CREATE */
-#your-labspaces, #create-labspace-container, .no-messages {
+#your-labspaces, #create-labspace-container, .no-messages, #delete-labspace-cont, #success-delete {
     margin: auto;
     text-align: center;
     align-items: center;
@@ -8,9 +8,10 @@
     margin-top: 2em;
 }
 
-#your-labspaces p {
+#your-labspaces {
     color: var(--secondary-text-col);
 }
+
 
 /* LABSPACE CHECKBOX SELECT */
 .labspace-check {
@@ -284,4 +285,41 @@
 
 .no-messages h2 {
     font-size: 1em;
+}
+
+/* Delete labspace */
+
+.labspace-to-delete {
+    color: var(--secondary-text-col);
+    font-size: 1.5em;
+}
+.labspace-stats {
+    color: var(--accent-yellow)
+}
+
+.labspace-del-buttons {
+    padding-top: 0.5em;
+    width: 25%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#delete-yes-btn, #delete-no-btn {
+    width: 150px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-size: 1em;
+    padding: 0.5em;
+    color: var(--primary-text-col);
+    border: 4px solid var(--primary-text-col);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#delete-yes-btn:hover, #delete-no-btn:hover {
+    color: var(--secondary-text-col);
+    background: var(--primary-shadow);
+    text-decoration: none;
+    border-radius: 40px 10px;
 }

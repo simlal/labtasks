@@ -40,8 +40,6 @@ def your_labspaces(request):
             else:
                 timesince_last_message[labspace.id] = 'No messages yet'
 
-        print(timesince_last_message)        
-        
         context = {
             "labspaces": labspaces,
             "timesince_last_message": timesince_last_message,
@@ -56,9 +54,42 @@ def edit_labspace(request, pk):
     return render(request, "labspaces/edit_labspace.html", context)
 
 def delete_labspace(request, pk):
-    labspace = Labspace.objects.get(id=pk)
-    context = {"labspace": labspace}
-    return render(request, "labspaces/delete_labspace.html")
+    if request.method == "POST":
+        # Get the labspace obj with the given pj
+        labspace_to_del = Labspace.objects.get(id=pk)
+        
+        # Delete the labspace
+        labspace_to_del.delete()
+        
+        # Redirect to success delete
+        return render(request, "labspaces/success_delete.html")
+    
+    # Get request
+    else:
+        # Get the labspace obj
+        labspace = Labspace.objects.get(id=pk)
+        # Find last message if possible
+        try : 
+                last_message = Message.objects.filter(labspace=labspace.id).latest("created")
+        except Exception as e:
+                print(e)
+                last_message = False
+            
+        # Save latest message based on space id
+        if last_message:
+            timesince_last = timesince(last_message.created, timezone.now())
+        else:
+            timesince_last = "No messages yet!"
+        
+        context = {
+            "labspace": labspace,
+            "last_message": last_message,
+            "timesince_last": timesince_last
+        }
+    return render(request, "labspaces/delete_labspace.html", context)
+
+def cancel_delete_labspace(request):
+    return redirect("labspaces/your_labspaces.html")
 
 # @login_required
 def labspace(request, pk):

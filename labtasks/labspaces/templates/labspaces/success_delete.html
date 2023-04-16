@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block other_stylesheet %}
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'styles/labspaces.css' %}">
+
+{% endblock other_stylesheet %}
+
+{% block content %}
+
+<div id="success-delete">
+    <h2>SUCCESSFULLY DELETED LABSPACE!</h2>
+    <a class="go-back" href="{% url 'labspaces:your_labspaces' %}">Go back to your Labspaces</a>
+</div>
+
+{% endblock %}
