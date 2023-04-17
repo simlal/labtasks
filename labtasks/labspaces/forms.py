@@ -19,3 +19,20 @@ class LabspaceForm(ModelForm):
     class Meta:
         model = Labspace
         fields = ["name", "description"]
+
+class editLabspaceForm(ModelForm):
+    name = forms.CharField(
+        required=False,
+        max_length=50,
+        widget=forms.TextInput(attrs={"placeholder" : "Enter new Labspace name"}),
+    )
+    
+    description = forms.CharField(
+        required=False,
+        max_length=200,
+        widget= forms.Textarea(attrs={"placeholder" : "Enter new description"}),
+    )
+    
+    class Meta:
+        model = Labspace
+        fields = ["name", "description"]

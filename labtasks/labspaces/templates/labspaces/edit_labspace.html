@@ -9,8 +9,25 @@
 
 {% block content %}
 
-<div id="edit-container-form">
-
+<div id="edit-labspace-cont">
+    <h2>EDITING...</h2>
+    <p class="labspace-to-delete"><span style="color: var(--accent-yellow); font-style: italic;">{{labspace.name}}</span> Labspace</p>
+    {% comment %} <ul class="labspace-edits">
+        <li><span style="color: var(--secondary-text-col)">Host &nbsp; &nbsp; &#8594; &nbsp; &nbsp;</span>{{ labspace.host }}&nbsp; &nbsp;  <a href="edit">edit</a></li> {% endcomment %}
+    <form method="post" action="">
+        {% csrf_token %}
+        <table class="edit-labspace-form">
+        {{ form.as_table }}
+        </table>
+        <button id="labspace-edit-btn-form" type="submit">Edit labspace</button>
+    </form>
+    <form action="{% url 'labspaces:cancel_edit_labspace' %}" method="get">
+        <button id="labspace-cancel-edit-btn" type="submit">Go back</button>
+    </form>
+        
 </div>
+
+{% load static %}
+<script src="{% static 'labspaces.js' %}"></script>
 
 {% endblock %}

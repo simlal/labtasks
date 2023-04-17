@@ -1,5 +1,7 @@
 /* YOUR LABSPACES SELECTION/CREATE */
-#your-labspaces, #create-labspace-container, .no-messages, #delete-labspace-cont, #success-delete {
+#your-labspaces, #create-labspace-container, .no-messages,
+#delete-labspace-cont, #success-delete,
+#edit-labspace-cont {
     margin: auto;
     text-align: center;
     align-items: center;
@@ -87,8 +89,9 @@
     justify-content: space-around;
 }
 
-#selected-labspace-btn, #labspace-create-btn {
-    width: 225px;
+#selected-labspace-btn, #labspace-create-btn, 
+#labspace-edit-btn-form, #labspace-cancel-edit-btn {
+    width: 200px;
     background-color: rgba(0,0,0,0.1);
     border-radius: 10px;
     font-size: 1em;
@@ -99,14 +102,15 @@
     cursor: pointer;
 }
 
-#selected-labspace-btn:hover, #labspace-create-btn:hover {
+#selected-labspace-btn:hover, #labspace-create-btn:hover,
+#labspace-edit-btn-form:hover, #labspace-cancel-edit-btn:hover {
     color: var(--secondary-text-col);
     background: var(--primary-shadow);
     text-decoration: none;
     border-radius: 40px 10px;
 }
 
-#selected-labspace-btn {
+#selected-labspace-btn, #labspace-edit-btn-form {
     background: linear-gradient(to right, var(--accent-yellow), var(--accent-pink));
     color:transparent;
     background-clip: text;
@@ -191,7 +195,7 @@
     background-color: var(--primary-shadow);
 }
 
-#labspace-create-btn {
+#labspace-create-btn, #labspace-edit-btn-form, #labspace-cancel-edit-btn {
     margin-top: 1em;
 }
 
@@ -294,7 +298,7 @@
     font-size: 1.5em;
 }
 .labspace-stats {
-    color: var(--accent-yellow)
+    color: var(--accent-yellow);
 }
 
 .labspace-del-buttons {
@@ -322,4 +326,42 @@
     background: var(--primary-shadow);
     text-decoration: none;
     border-radius: 40px 10px;
+}
+
+/* labspace edit form */
+
+.edit-labspace-form {
+    width: 90%;
+    margin-top: -0.5em;
+    padding-right: 3em;
+    margin-left: -2em;
+
+}
+
+.edit-labspace-form th {
+    text-align: right;
+    padding-right: 1em;
+}
+
+.edit-labspace-form input[type="text"],
+.edit-labspace-form textarea {
+    width: 100%;
+    padding: 0.75em;
+    margin-top: 0.5em;
+    box-sizing: border-box;
+    border: 2px solid var(--primary-text-col);
+    border-radius: 10px;
+    font-size: 0.5em;
+}
+
+.edit-labspace-form .errorlist {
+    width: 75%;
+    margin: auto;
+    box-sizing: border-box;
+    border: 2px solid var(--primary-text-col);
+    border-radius: 10px;
+    font-size: 0.75em;
+    font-weight: bold;
+    color: var(--accent-pink);
+    background-color: var(--primary-shadow);
 }

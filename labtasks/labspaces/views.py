@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from .models import Labspace, Message
-from .forms import LabspaceForm
+from .forms import LabspaceForm, editLabspaceForm
 
 from django.utils import timezone
 from django.utils.timesince import timesince
@@ -49,8 +49,27 @@ def your_labspaces(request):
         return render(request, "labspaces/your_labspaces.html", context)
 
 def edit_labspace(request, pk):
+    # Get selected labspace
     labspace = Labspace.objects.get(id=pk)
-    context = {"labspace": labspace}
+
+    if request.method == 'POST':
+        # Edit db to change name + description
+        form = editLabspaceForm(request.POST, instance=labspace)
+        if form.is_valid():
+            if form.has_changed():
+                
+                # Update only changed fields
+                for field in form.changed_data:
+                    setattr(labspace, field, form.cleaned_data[field])
+                labspace.save()
+            return redirect("labspaces:your_labspaces")
+    else:
+        form = editLabspaceForm(instance=labspace)
+
+    context = {
+        "labspace": labspace,
+        "form": form
+    }
     return render(request, "labspaces/edit_labspace.html", context)
 
 def delete_labspace(request, pk):
@@ -89,6 +108,9 @@ def delete_labspace(request, pk):
     return render(request, "labspaces/delete_labspace.html", context)
 
 def cancel_delete_labspace(request):
+    return redirect("labspaces/your_labspaces.html")
+
+def cancel_edit_labspace():
     return redirect("labspaces/your_labspaces.html")
 
 # @login_required
