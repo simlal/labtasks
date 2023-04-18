@@ -16,6 +16,7 @@
     <h2>YOUR LABSPACES</h2>
     {% if not labspaces %}
         <p class="select-advice">No labspaces yet, create one now!</p>
+        
     {% else %}
         <p class="select-advice">Select a labspace!</p>
         {% for labspace in labspaces %}
@@ -34,14 +35,15 @@
             </div>
         </div>
         {% endfor %}
+        <div class="labspace-buttons">
+            <button id="selected-labspace-btn" type="submit">Go to labspace!</button>
+            <button id="edit-labspace-btn" type="submit">Edit labspace</button>
+            <button id="delete-labspace-btn" type="submit">Delete labspace</button>
+        </div>
     {% endif %}
 
 
-    <div class="labspace-buttons">
-        <button id="selected-labspace-btn" type="submit">Go to labspace!</button>
-        <button id="edit-labspace-btn" type="submit">Edit labspace</button>
-        <button id="delete-labspace-btn" type="submit">Delete labspace</button>
-    </div>
+    
 </div>
 <div id="create-labspace-container">
     <h2>CREATE NEW LABSPACE</h2>

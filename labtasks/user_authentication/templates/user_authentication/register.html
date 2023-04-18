@@ -1,9 +1,24 @@
 {% extends 'main.html' %}
 {% load static %}
-{% block user_auth_styles %}
-<link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/user_auth.css' %}">
-{% endblock user_auth_styles %}
+{% block other_stylesheet %}
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'styles/user_auth.css' %}">
+
+{% endblock other_stylesheet %}
 
 {% block content %}
-<h1>REGISTER PAGE</h1>
+
+<div id="user-register-cont">
+    <h2>REGISTER</h2>
+    <form method="post" action="{% url 'user_authentication:successful_register' 'simlal' %}">
+        {% csrf_token %}
+        <table class="user-reg-form">
+            {% comment %} {{ form.as_table }} {% endcomment %}
+        </table>
+        <button id="user-reg-form-btn" type="submit">Register</button>
+    </form>
+    <form method="get" action="{% url 'user_authentication:login_page' %}"
+</div>
+
 {% endblock content %}

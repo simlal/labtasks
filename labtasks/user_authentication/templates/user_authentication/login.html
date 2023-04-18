@@ -1,5 +1,42 @@
 {% extends 'main.html' %}
+{% load static %}
+{% block other_stylesheet %}
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'styles/user_auth.css' %}">
+
+{% endblock other_stylesheet %}
 
 {% block content %}
-<h1>LOGIN PAGE</h1>
+
+<div id="user-login-cont">
+    <h2>LOGIN</h2>
+    <p class="login-welcome">Enter your username and password to login to your Laboratasks account</p>
+    <div class="login-form">
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="login-field">
+                <label>Username:</label>
+                <input type="text" name="username" placeholder="Enter your username">
+            </div>
+            <div class="login-field">
+                <label>Password:</label>
+                <input type="password" name="password" placeholder="Enter your password">
+            </div>
+            <button id="user-login-form-btn" type="submit">Login</button>
+        </form>
+    </div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}    
+
+    <form method="get" action="{% url 'user_authentication:login_page' %}">
+    </form>
+        {% comment %} <button id="user-login-register-btn" type="submit">Register</button> {% endcomment %}
+</div>
+
 {% endblock content %}

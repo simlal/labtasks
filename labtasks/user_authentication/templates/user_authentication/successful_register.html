@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block other_stylesheet %}
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'styles/user_auth.css' %}">
+
+{% endblock other_stylesheet %}
+
+{% block content %}
+
+<div id="success-register">
+    <h2>SUCCESSFULLY REGISTERED!</h2>
+    <p class="success-info">Welcome @{{ user.username }} !</p>
+    <a class="go-your-labspaces" href="{% url 'labspaces:your_labspaces' %}">Go to your Labspaces</a>
+</div>
+
+{% endblock %}

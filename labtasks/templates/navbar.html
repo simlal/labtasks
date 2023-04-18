@@ -8,9 +8,9 @@
     <ul class="nav-options">
         <div class="item-gr5">
         {% comment %} <div class="{% if user.is_authenticated %}item-gr3{% else %}item-gr1{% endif %}"> {% endcomment %}
-            <li><a class="item1" href="{% url 'user_authentication:register' %}">Register</a></li>
+            <li><a class="item1" href="{% url 'user_authentication:register_page' %}">Register</a></li>
             <li>/</li>
-            <li><a class="item2" href="{% url 'user_authentication:login' %}">Log in</a></li>
+            <li><a class="item2" href="{% url 'user_authentication:login_page' %}">Log in</a></li>
             {% comment %} ADD IF USER.ISAUTH {% endcomment %}
             <li>/</li>
             <li><a class="item5" href="{% url 'labspaces:your_labspaces' %}">My Labspaces</a></li>

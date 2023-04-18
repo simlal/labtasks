@@ -108,10 +108,10 @@ def delete_labspace(request, pk):
     return render(request, "labspaces/delete_labspace.html", context)
 
 def cancel_delete_labspace(request):
-    return redirect("labspaces/your_labspaces.html")
+    return redirect("labspaces:your_labspaces")
 
 def cancel_edit_labspace():
-    return redirect("labspaces/your_labspaces.html")
+    return redirect("labspaces:your_labspaces")
 
 # @login_required
 def labspace(request, pk):
