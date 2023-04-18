@@ -465,8 +465,6 @@ nav {
 .form-table .errorlist {
     width: 75%;
     margin: auto;
-    /* padding: 0.75em; */
-    /* margin-top: 0.5em; */
     box-sizing: border-box;
     border: 2px solid var(--primary-text-col);
     border-radius: 10px;

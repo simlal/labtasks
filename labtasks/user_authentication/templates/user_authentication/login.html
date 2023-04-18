@@ -36,7 +36,7 @@
 
     <form method="get" action="{% url 'user_authentication:login_page' %}">
     </form>
-        {% comment %} <button id="user-login-register-btn" type="submit">Register</button> {% endcomment %}
+    <p class="register-link">Haven't registered yet? <a href="{% url 'user_authentication:register_page' %}">Register here</a></p>
 </div>
 
 {% endblock content %}

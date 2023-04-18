@@ -11,14 +11,18 @@
 
 <div id="user-register-cont">
     <h2>REGISTER</h2>
-    <form method="post" action="{% url 'user_authentication:successful_register' 'simlal' %}">
+    <form method="post" action="">
         {% csrf_token %}
         <table class="user-reg-form">
-            {% comment %} {{ form.as_table }} {% endcomment %}
+            {{ form.as_table }}
         </table>
+
         <button id="user-reg-form-btn" type="submit">Register</button>
     </form>
-    <form method="get" action="{% url 'user_authentication:login_page' %}"
+    <form method="get" action="{% url 'user_authentication:login_page' %}"></form>
 </div>
+
+{% load static %}
+<script src="{% static 'user_auth.js' %}"></script>
 
 {% endblock content %}

@@ -17,6 +17,11 @@
     color: var(--secondary-text-col);
     margin-bottom: 1.5em;
 }
+
+#user-login-cont .register-link {
+    color: var(--primary-text-col)
+}
+
 .messages {
     color: var(--accent-yellow);
     margin-bottom: 1.5em;
@@ -52,7 +57,7 @@
     margin-bottom: 1em;
 }
 
-#user-login-form-btn {
+#user-login-form-btn, #user-reg-form-btn {
     margin-top: 1em;
     width: 150px;
     background-color: rgba(0,0,0,0.1);
@@ -66,13 +71,15 @@
     
 }
 
-#user-login-form-btn:hover {
+#user-login-form-btn:hover, #user-reg-form-btn:hover {
     color: var(--secondary-text-col);
     background: var(--primary-shadow);
     text-decoration: none;
     border-radius: 40px 10px;
 
 }
+
+
 
 /* unauth */
 #unauthorized-cont {
@@ -87,3 +94,53 @@
 #unauthorized-cont p {
     color: var(--secondary-text-col)
 }
+
+/* Register form */
+.user-reg-form {
+    width: 55%;
+    padding-bottom: 0em;
+    margin: auto;
+    text-align: left;
+    align-items: center;
+
+}
+
+.user-reg-form th {
+    text-align: right;
+    padding-right: 2em;
+    padding-top: 1em;
+    
+}
+
+.user-reg-form label:hover::after {
+    content: ' ?';
+    font-size: 0.8em;
+    color: var(--secondary-text-col);
+}
+
+.user-reg-form td {
+    padding-top: 1em;
+    position: relative;
+}
+
+.user-reg-form input[type="text"],
+.user-reg-form input[type="password"] {
+    padding: 1em;
+    box-sizing: border-box;
+    border: 2px solid var(--primary-text-col);
+    border-radius: 10px;
+    font-size: 0.5em;
+}
+
+
+.helptext {
+    font-size: 0.5em;
+    position: absolute;
+    top: 25px;
+    right: -500px;
+    text-align: left;
+    display: none;
+    /* padding: 200px; */
+}
+
+

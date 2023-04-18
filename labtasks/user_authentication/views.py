@@ -2,14 +2,26 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
 
 
 def register_page(request):
-    # form = UserForm
+    form = UserCreationForm()
     if request.method == "POST":
-        pass
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            # elminate casing duplaticates
+            user.username = user.username.lower()
+            user.save()
+            login(request, user)
+            context = {"user": user}
+            return render(request, "user_authentication/successful_register.html", context)
     
-    return render(request, "user_authentication/register.html")
+    context = {
+        "form": form
+    }
+    return render(request, "user_authentication/register.html", context)
 
 def successful_register(request, username):
     user = User.objects.get(username=username)
