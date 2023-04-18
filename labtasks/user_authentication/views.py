@@ -17,6 +17,10 @@ def successful_register(request, username):
     return render(request, "user_authentication/successful_register.html", context)
 
 def login_page(request):
+    # Redirect to index if already auth
+    if request.user.is_authenticated:
+        return redirect("base:index")
+    
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")

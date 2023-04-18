@@ -23,7 +23,7 @@ def your_labspaces(request):
     else: 
         form = LabspaceForm()    # To render the form on request.get
         
-        labspaces = Labspace.objects.all()    # Get all available labspaces
+        labspaces = Labspace.objects.all().order_by('-pinned', '-updated', '-created')    # Get all available labspaces
         
         timesince_last_message = {}    # Initialize timesince dict
 
