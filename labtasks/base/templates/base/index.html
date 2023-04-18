@@ -96,4 +96,11 @@
 </section>
 {% load static %}
 <script src="{% static 'index.js' %}"></script>
+
+{% if scroll_to_contact %}
+    <script>
+        window.location.hash = "#contact";
+    </script>
+{% endif %}
+
 {% endblock %}

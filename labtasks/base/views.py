@@ -32,11 +32,7 @@ def index(request):
             contact_instance = contact.save(commit=False)
             contact_instance.send_date = timezone.now()
             contact_instance.save()
-            submitted = True
-            context = {
-                "form" : contact,
-                "submitted" : submitted
-            }
+            
             # Sending confirmation email
             form_vals = "\n".join(cd.values())
             try:
@@ -50,6 +46,16 @@ def index(request):
                 print(returned_message(cd["first_name"]))
             except BadHeaderError:
                 return render(request, "contact_email/header_error.html")
+            
+            # Save submit state + scroll action to context
+            submitted = True
+            scroll_to_contact = True
+            
+            context = {
+                "form" : contact,
+                "submitted" : submitted,
+                "scroll_to_contact": scroll_to_contact
+            }
 
             return render(request, "base/index.html", context=context)
     
