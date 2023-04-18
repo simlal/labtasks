@@ -53,3 +53,7 @@ def login_page(request):
     
     else:
         return render(request, "user_authentication/login.html")
+
+def logout_user(request):
+    logout(request)
+    return redirect("base:index")
