@@ -74,3 +74,16 @@
 
 }
 
+/* unauth */
+#unauthorized-cont {
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    width: 75%;
+    font-size: 2em;
+    margin-top: 2em;
+}
+
+#unauthorized-cont p {
+    color: var(--secondary-text-col)
+}

@@ -5,17 +5,18 @@ from .forms import LabspaceForm, editLabspaceForm
 
 from django.utils import timezone
 from django.utils.timesince import timesince
-# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 
-# @login_required
+@login_required(login_url="user_authentication:login_page")
 def your_labspaces(request):
     
     # Create a new labspace based on form
     if request.method == "POST":
         form = LabspaceForm(request.POST)
         if form.is_valid():
-            form.save()
-            context = {"form": form}
+            labspace = form.save(commit=False)
+            labspace.host = request.user
+            labspace.save()
             return redirect("labspaces:your_labspaces")
 
     # Display  available labspaces and create labspace form
@@ -48,10 +49,16 @@ def your_labspaces(request):
 
         return render(request, "labspaces/your_labspaces.html", context)
 
+@login_required(login_url="user_authentication:login_page")
 def edit_labspace(request, pk):
+    
     # Get selected labspace
     labspace = Labspace.objects.get(id=pk)
 
+    # Validate if current user is the host
+    if request.user != labspace.host and not request.user.is_superuser:
+        return redirect("labspaces:unauthorized") 
+    
     if request.method == 'POST':
         # Edit db to change name + description
         form = editLabspaceForm(request.POST, instance=labspace)
@@ -72,8 +79,19 @@ def edit_labspace(request, pk):
     }
     return render(request, "labspaces/edit_labspace.html", context)
 
+@login_required(login_url="user_authentication:login_page")
 def delete_labspace(request, pk):
+    
+    # Get selected labspace
+    labspace = Labspace.objects.get(id=pk)
+
+    # Validate if current user is the host
+    if request.user != labspace.host and not request.user.is_superuser:
+        return redirect("labspaces:unauthorized") 
+
+    # Delete labspace
     if request.method == "POST":
+        
         # Get the labspace obj with the given pj
         labspace_to_del = Labspace.objects.get(id=pk)
         
@@ -112,6 +130,9 @@ def cancel_delete_labspace(request):
 
 def cancel_edit_labspace():
     return redirect("labspaces:your_labspaces")
+
+def unauthorized(request):
+    return render(request, "labspaces/unauthorized.html")
 
 # @login_required
 def labspace(request, pk):

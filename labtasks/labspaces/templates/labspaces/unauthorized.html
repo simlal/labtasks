@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block other_stylesheet %}
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'styles/user_auth.css' %}">
+
+{% endblock other_stylesheet %}
+
+{% block content %}
+
+<div id="unauthorized-cont">
+    <h2>Unauthorized action!</h2>
+    <p>You must be an admin or the host of the labspace to perform modifications</p>
+    <a class="go-back" href="{% url 'labspaces:your_labspaces' %}">Go back to your Labspaces</a>
+</div>
+
+{% endblock %}
