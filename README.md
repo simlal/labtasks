@@ -11,7 +11,7 @@ Incoming...(see below)
 
 ## Steps TODO for live demo
 Host the app (for free) with the following steps:
-1. Host the github repo on a web hosting service ([PythonAnywhere](www.PythonAnywhere.com) or [Vercel](www.vercel.com))
+1. Host the github repo on a web hosting service ([PythonAnywhere](https://PythonAnywhere.com) or [Vercel](https://vercel.com))
 
 2. Setup static files ([AWS S3](www.https://aws.amazon.com/s3/))
 
