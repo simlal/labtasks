@@ -6,8 +6,12 @@
 This is the main project of a university class which act as an intro to web development using the Django Framework.
 
 
-## Live demo
-Incoming...(see below)
+## Demo
+**Register users**
+![](https://github.com/simlal/labtasks/blob/main/register.gif)
+
+**Message boards**
+![](https://github.com/simlal/labtasks/blob/main/messaging.gif)
 
 ## Steps TODO for live demo
 Host the app (for free) with the following steps:
