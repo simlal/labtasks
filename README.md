@@ -7,11 +7,36 @@ This is the main project of a university class which act as an intro to web deve
 
 
 ## Demo
-**Register users**
+
+### User registration and login
+
 ![](https://github.com/simlal/labtasks/blob/main/register.gif)
 
-**Message boards**
+<br>
+
+### Chatroom messaging
+
 ![](https://github.com/simlal/labtasks/blob/main/messaging.gif)
+
+<br>
+
+### CRUD on chatrooms
+
+![](https://github.com/simlal/labtasks/blob/main/crud_labspaces.gif)
+
+<br>
+
+### Email backend
+
+![](https://github.com/simlal/labtasks/blob/main/email_backend2.gif)
+
+<br>
+
+### Simple error handling
+
+![](https://github.com/simlal/labtasks/blob/main/basic_errors.gif)
+
+<br>
 
 ## Steps TODO for live demo
 Host the app (for free) with the following steps:
