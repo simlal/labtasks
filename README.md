@@ -54,15 +54,19 @@ I also wanted to play around with CSS and implement a bit of JavaScript for some
 
 
 ## To install locally
-Prep your environment (Python > 3.7)
+a) Prep your environment (Python > 3.7)
 1. `python -m venv laboratasks`
 2. `source laboratasks/bin/activate`
 3. `pip install -r requirements.txt`
 
-Clone and run locally
+b) Clone and run locally
 1. `git clone git@github.com:simlal/labtasks.git`
 2. `cd labtasks/labtasks`
 3. `python manage.py runserver`
+
+c) Create the secrets.yaml file with the email backend on SendGrid and the secret-key.
+
+d) Create universal rooms with the django-admin credentials/
 
 ## Contact
 Get in touch with me :)
