@@ -134,11 +134,11 @@ def cancel_edit_labspace():
 def unauthorized(request):
     return render(request, "labspaces/unauthorized.html")
 
-# @login_required
+@login_required(login_url="user_authentication:login_page")
 def labspace(request, pk):
     # Get labspace and all related messages
     labspace = Labspace.objects.get(id=pk)
-    messages = Message.objects.filter(labspace=labspace)
+    messages = labspace.message_set.all().order_by("created")
 
     context = {
         "labspace": labspace,

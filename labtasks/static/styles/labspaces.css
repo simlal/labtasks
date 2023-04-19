@@ -235,6 +235,7 @@
     margin: auto;
 
 }
+/* Messages placement */
 
 #labspace-messages {
     margin: auto;
@@ -242,48 +243,49 @@
     align-items: center;
     width: 90%;
     margin-top: 2em;
+    margin-bottom: 2em;
     
 }
 
 #labspace-messages .user-post {
     border: 4px solid var(--primary-text-col);
     border-radius: 40px 10px;
+    width: 50%;
+    margin: 0 auto;
     margin-bottom: 1em;
     display: flex;
     align-items: center;
-    width: 50%;
     background-color: rgba(0,0,0,0.3);
 }
 
-.left-align {
-    text-align: left;
+#labspace-messages .user-post.center-left {
+    margin-left: 15%;
 }
 
-.right-align {
-    text-align: right;
+#labspace-messages .user-post.center-right {
+    margin-left: 45%;
 }
 
-#labspace-messages h3 {
+
+#labspace-messages .message-user {
     font-size: 1.5em;
     display: inline-block;
-    margin-left: 10px;
-    margin-right: 20px;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-left: 1em;
+    margin-right: 1.5em;
     background: linear-gradient(to right, var(--accent-yellow), var(--accent-pink));
     color:transparent;
     background-clip: text;
     
 }
 
-#labspace-messages .body {
+#labspace-messages .message-body {
     color: var(--secondary-text-col);
-    font-size: 0.8em;
+    font-size: 1em;
 }
 
-#labspace-messages .timestamp {
+#labspace-messages .message-timestamp {
     color: var(--secondary-text-col);
-    font-size: 0.4em;
+    font-size: 0.6em;
     font-style: italic;
 }
 

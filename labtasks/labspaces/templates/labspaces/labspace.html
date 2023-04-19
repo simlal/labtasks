@@ -9,6 +9,8 @@
 
 {% block content %}
 
+{% load my_filters %}
+
 <div id="labspace-header"> 
     <h2 class="labspace-title">{{ labspace.host }}'s <em color="white">{{ labspace.name }}</em> labspace</h2>
     <p class="description">{{ labspace.description }}</p>
@@ -18,12 +20,14 @@
 
     {% if messages %}
         {% for message in messages %}
-        
-        <div class="user-post" {% if message.user == current_user %}left-align{% else %}right-align{% endif %}>
-            <h3>@{{ message.user }}<h3>
-            <p class="body"> {{ message.body }}</p>
-            <p class="timestamp">posted {{ message.created|timesince }} ago</p>
-        </div>
+            {% get_alignment messages=messages current_message=message as align_val %}
+            <div class="user-post {{ align_val }}">
+
+
+                <h3 class="message-user">@{{ message.user }}<h3>
+                <p class="message-body"> {{ message.body }}</p>
+                <p class="message-timestamp">posted {{ message.created|timesince }} ago</p>
+            </div>
         {% endfor %}
     {% else %}
         <div class="no-messages">
