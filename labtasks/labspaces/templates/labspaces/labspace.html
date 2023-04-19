@@ -34,7 +34,21 @@
             <h2>There are no messages in this labspace yet. Be the first to write something!</h2>
         </div>
     {% endif %}
+    <hr id="add-message-sep">
+    <div id="add-message">
+        <h2>Post a new message in <em style="color: white;">{{ labspace.name }}</em></h2>
+            <form method="post" action="">
+                {% csrf_token %}
+                <table class="post-message-form">
+                {{ form.as_table }}
+                </table>
+                <button id="post-message-btn" type="submit">Post</button>
+            </form>
+    </div>
 
 </div>
+
+{% load static %}
+<script src="{% static 'labspace.js' %}" ></script>
 
 {% endblock %}

@@ -15,37 +15,15 @@ def is_same_user_as_previous(messages, current_message):
 
 @register.simple_tag
 def get_alignment(messages, current_message):
-    
-
-    for i, message in enumerate(messages):
-        
-        if i == 0:
-            alignment = "center-left"
-        
-        # Switch align for all messages after pinned
-        if i > 0:
-            if current_message.user != messages[i - 1].user:
-                if alignment == "center-left":
-                    alignment = "center-right" 
-                else:
-                    alignment = "center-left"
+    alignment = "center-left"
+    prev_user = None
+    for message in messages:
+        if message.user != prev_user and prev_user is not None:
+            if alignment == "center-left":
+                alignment = "center-right"
             else:
-                if alignment == "center-left":
-                    alignment = "center-left"
-                else:
-                    alignment = "center-right"
-        
+                alignment = "center-left"
         if message == current_message:
             return alignment
+        prev_user = message.user
     return alignment
-
-
-
-# @register.simple_tag
-# def get_alignment(messages, current_message):
-#     alignment = 'left'
-#     for message in messages:
-#         if message == current_message:
-#             return alignment
-#         alignment = 'right' if alignment == 'left' else 'left'
-#     return alignment

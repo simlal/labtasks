@@ -10,7 +10,11 @@ button.addEventListener('click', function() {
     if (checkboxes.length === 1) {
         // Get the URL of the selected Labspace object from the labspace-url attribute of the checkbox
         let url = checkboxes[0].getAttribute('labspace-url');
-        console.log("selectedurl:", url)
+
+        // Append the #add-message fragment identifier to the URL
+        url += '#add-message';
+        console.log("selectedurl:", url);
+
 
         // Navigate to the URL of the selected Labspace object
         window.location.href = url;

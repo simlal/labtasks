@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 
-from .models import Labspace
+from .models import Labspace, Message
 
 class LabspaceForm(ModelForm):
     name = forms.CharField(
@@ -36,3 +36,14 @@ class editLabspaceForm(ModelForm):
     class Meta:
         model = Labspace
         fields = ["name", "description"]
+
+class PostMessageForm(ModelForm):
+    body = forms.CharField(
+        required=True,
+        max_length=2000,
+        widget=forms.Textarea(attrs={"placeholder": "Write your message here."})
+    )
+    
+    class Meta:
+        model = Message
+        fields = ["body"]

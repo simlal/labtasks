@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 from .models import Labspace, Message
-from .forms import LabspaceForm, editLabspaceForm
+from .forms import LabspaceForm, editLabspaceForm, PostMessageForm
 
 from django.utils import timezone
 from django.utils.timesince import timesince
@@ -139,12 +140,29 @@ def labspace(request, pk):
     # Get labspace and all related messages
     labspace = Labspace.objects.get(id=pk)
     messages = labspace.message_set.all().order_by("created")
+    
+    # Post new message
+    if request.method == "POST":
+        form = PostMessageForm(request.POST)
+    
+        # Validate form and save to db
+        if form.is_valid():
+            post_message = form.save(commit=False)
+            post_message.user = request.user
+            post_message.labspace = labspace
+            post_message.save()
+            # Redirect to post-message box
+            url = reverse("labspaces:labspace", args=[labspace.id])
+            return redirect(f"{url}#add-message")
+    
+    # Display form
+    else: 
+        form = PostMessageForm()
+        context = {
+            "labspace": labspace,
+            "messages": messages,
+            "current_user": request.user,
+            "form": form,
+        }
+        return render(request, "labspaces/labspace.html", context)
 
-    context = {
-        "labspace": labspace,
-        "messages": messages,
-
-        "current_user": request.user
-    }
-
-    return render(request, "labspaces/labspace.html", context)
